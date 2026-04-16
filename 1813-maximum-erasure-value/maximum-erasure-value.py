@@ -4,7 +4,7 @@ class Solution:
         end = len(nums)
         ans = 0
         count = 0
-        store = []
+        store = set()
         for i in range(end):
     
             while nums[i] in store:
@@ -13,7 +13,7 @@ class Solution:
                 start += 1
 
             count += nums[i]
-            store.append(nums[i])
+            store.add(nums[i])
             ans = max(count, ans)
         return ans
 
