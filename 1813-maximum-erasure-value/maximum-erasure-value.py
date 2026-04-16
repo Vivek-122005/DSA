@@ -5,7 +5,7 @@ class Solution:
         ans = 0
         count = 0
         store = []
-        for i in range(0,end):
+        for i in range(end):
     
             while nums[i] in store:
                 store.remove(nums[start])
