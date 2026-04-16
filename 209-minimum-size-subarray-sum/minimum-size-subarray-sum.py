@@ -3,7 +3,7 @@ class Solution:
         start = 0
         end = len(nums)
         count = 0
-        ans = 1000000000
+        ans = float('INF')
         for i in range(end):
             count += nums[i]
             while count >= target:
@@ -11,7 +11,7 @@ class Solution:
                 count -= nums[start]
                 start+=1
         
-        return 0 if ans == 1000000000 else ans
+        return 0 if ans == float('INF') else ans
             
 
         
