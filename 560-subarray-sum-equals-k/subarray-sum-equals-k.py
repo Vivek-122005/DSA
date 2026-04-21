@@ -3,12 +3,13 @@ class Solution:
         n = len(nums)
 
         sumarr = {}
+        sumarr[0] = 1
         running_sum = 0
         ans = 0
         for i in range(0,n):
             running_sum += nums[i]
-            if running_sum ==k:
-                ans +=1
+            # if running_sum ==k:
+            #     ans +=1
             
             if running_sum - k in sumarr:
                 ans += sumarr[running_sum-k]
