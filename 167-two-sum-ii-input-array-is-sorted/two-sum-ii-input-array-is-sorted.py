@@ -4,11 +4,12 @@ class Solution:
         N = len(numbers)
         i,j = 0,N-1
         while(i<j):
-            if numbers[i]+numbers[j] == target:
-                return i+1,j+1
-            elif (numbers[i]+numbers[j] < target):
+            total = numbers[i]+numbers[j]
+            if total == target:
+                return [i+1,j+1]
+            elif total < target:
                 i+=1
-            elif (numbers[i]+ numbers[j] > target):
+            elif total > target:
                 j-= 1
-        return 0
+        return [-1,-1]
         
