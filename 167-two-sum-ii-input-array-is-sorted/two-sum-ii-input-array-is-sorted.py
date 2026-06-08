@@ -9,7 +9,7 @@ class Solution:
                 return [i+1,j+1]
             elif total < target:
                 i+=1
-            elif total > target:
+            else:
                 j-= 1
         return [-1,-1]
         
