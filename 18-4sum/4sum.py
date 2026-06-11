@@ -5,16 +5,18 @@ class Solution:
         data = []
 
         for i in range (0,N):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
             for j in range(i+1,N):
-
+                if j > i + 1 and nums[j] == nums[j - 1]:
+                    continue
                 start = j+1
                 end = N-1
                 
                 while start < end:
                     total = nums[i]+nums[j]+nums[start]+nums[end]
                     if total == target:
-                        if [nums[i],nums[j],nums[start],nums[end]] not in data:
-                            data.append([nums[i],nums[j],nums[start],nums[end]])
+                        data.append([nums[i],nums[j],nums[start],nums[end]])
                         start +=1
                         end -= 1
                         while start < end and nums[start] == nums[start-1]:
