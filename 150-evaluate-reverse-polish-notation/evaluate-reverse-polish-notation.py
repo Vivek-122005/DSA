@@ -1,11 +1,9 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []
-        operators = ['+','-','/','*']
+
         for i in tokens:
-            if i not in operators:
-                stack.append(int(i))
-            else:
+            if i in "-*/+":
                 right = stack.pop()
                 left = stack.pop()
                 if i == "+":
@@ -16,4 +14,6 @@ class Solution:
                     stack.append(left * right)
                 else:
                     stack.append(int(left / right))
+            else:
+                stack.append(int(i))
         return stack[0]
