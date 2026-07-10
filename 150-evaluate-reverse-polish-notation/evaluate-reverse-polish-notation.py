@@ -9,13 +9,11 @@ class Solution:
                 right = stack.pop()
                 left = stack.pop()
                 if i == "+":
-                    result = left + right
+                    stack.append(left + right)
                 elif i == "-":
-                    result = left - right
+                    stack.append(left - right)
                 elif i == "*":
-                    result = left * right
+                    stack.append(left * right)
                 else:
-                    result = int(left / right)
-
-                stack.append(result)
+                    stack.append(int(left / right))
         return stack[0]
