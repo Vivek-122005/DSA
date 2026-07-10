@@ -1,7 +1,7 @@
 class Solution:
     def decodeString(self, s: str) -> str:
-        countstack = []
-        stringstack =[]
+        stack = []
+        
         currnum = 0
         currstring = ""
 
@@ -9,14 +9,13 @@ class Solution:
             if i.isdigit():
                 currnum = currnum *10 + int(i)
             elif i =="[":
-                countstack.append(currnum)
-                stringstack.append(currstring)
+                stack.append((currstring,currnum))
+                
                 currstring = ""
                 currnum = 0
             elif i == "]":
-                a = countstack.pop()
-                b = stringstack.pop()
-                currstring = b + currstring * a
+                a,b = stack.pop()
+                currstring = a + currstring * b
             else:
                 currstring += i
         return currstring
