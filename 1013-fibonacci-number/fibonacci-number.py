@@ -1,9 +1,10 @@
 class Solution:
     def fib(self, n: int) -> int:
-        memo = [-1]* (n+1)
+        
         if n <= 1:
             return n
         def solve(n):
+            memo = [-1]* (n+1)
             if n <= 1:
                 return n
             if memo[n-1] != -1:
