@@ -1,33 +1,25 @@
 class Solution:
-    def check(self,mid: int, weights: List[int], days: int) -> bool:
+    def solve(self, mid : int, weights: list[int], days: int) -> Boolean:
+        temp = 0
         count = 1
-        sumval = 0
         for i in weights:
-            sumval += i
-            if (sumval > mid):
-                print(sumval)
+            temp += i
+            if temp > mid:
                 count += 1
-                sumval = i
-
-        print("count", count)
-        print(count <= days)
+                temp = i
+            
         return count <= days
 
-
-    def shipWithinDays(self, weights: List[int], days: int) -> int:
-        s = max(weights)
-        e = sum(weights)
+    def shipWithinDays(self, weights: list[int], days: int) -> int:
         ans = 0
-        while s<=e:
-            mid = s + (e-s)//2
-            print("midterm",mid)
-            if self.check(mid,weights,days):
+        left = max(weights)
+        right = sum(weights)
 
+        while left <= right:
+            mid = left + (right-left)//2
+            if self.solve(mid,weights,days):
                 ans = mid
-                e = mid -1
+                right = mid-1
             else:
-                s = mid +1
+                left = mid +1
         return ans
-
-
-        
